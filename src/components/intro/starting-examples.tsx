@@ -13,7 +13,8 @@ export function StartingExamples() {
     <section className="mb-16 rounded-xl border border-border bg-card p-6 text-center shadow-sm md:p-8">
       <h2 className="mb-3 text-2xl font-bold tracking-tight">Starting Examples</h2>
       <p className="mx-auto mb-6 max-w-xl text-muted-foreground">
-        Jumpstart your development with one of our pre-built examples tailored for the Cloudflare ecosystem.
+        Jumpstart your development with one of our pre-built examples tailored for the Cloudflare
+        ecosystem.
       </p>
 
       <ul className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">

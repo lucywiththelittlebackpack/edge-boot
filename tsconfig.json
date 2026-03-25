@@ -20,10 +20,6 @@
     "noEmit": true,
     "strictNullChecks": true,
     "verbatimModuleSyntax": true,
-    "types": [
-      "./worker-configuration.d.ts",
-      "node",
-      "vite/client"
-    ]
+    "types": ["./worker-configuration.d.ts", "node", "vite/client"]
   }
 }

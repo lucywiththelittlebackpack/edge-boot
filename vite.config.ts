@@ -1,9 +1,9 @@
+import { cloudflare } from "@cloudflare/vite-plugin";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
-import { cloudflare } from '@cloudflare/vite-plugin'
 import { defineConfig } from "vite";
 
 export default defineConfig({
@@ -16,13 +16,13 @@ export default defineConfig({
   plugins: [
     devtools(),
     // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
     babel({
       presets: [reactCompilerPreset()],
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({prerender: { enabled: true }}),
     viteReact(),
   ],
 });

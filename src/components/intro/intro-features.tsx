@@ -29,10 +29,7 @@ export function IntroFeatures() {
         title="Dev-ops"
         desc="Github actions for testing and cloudflare builds for deployment."
       />
-      <Feature
-        title="Playwright"
-        desc="E2E regression testing for your application."
-      />
+      <Feature title="Playwright" desc="E2E regression testing for your application." />
     </section>
   );
 }

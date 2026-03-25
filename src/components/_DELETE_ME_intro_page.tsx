@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { IntroHeader } from "./intro/intro-header";
+
+import { BootSource } from "./intro/boot-source";
 import { CloneCommand } from "./intro/clone-command";
-import { TierList } from "./intro/tier-list";
-import { ServiceBindings } from "./intro/service-bindings";
 import { IntroFeatures } from "./intro/intro-features";
 import { IntroFooter } from "./intro/intro-footer";
+import { IntroHeader } from "./intro/intro-header";
+import { ServiceBindings } from "./intro/service-bindings";
 import { StartingExamples } from "./intro/starting-examples";
-import { BootSource } from "./intro/boot-source";
+import { TierList } from "./intro/tier-list";
 
 /**
  * This is the intro component for TanStarter, which you may delete after creating the project.
@@ -17,9 +18,9 @@ export function IntroPageDeleteMe() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-6xl px-4 pb-12 pt-8 md:pt-12">
+      <div className="mx-auto max-w-6xl px-4 pt-8 pb-12 md:pt-12">
         <IntroHeader />
-        
+
         <CloneCommand selectedType={selectedType} />
 
         <section className="mb-12">
@@ -31,7 +32,7 @@ export function IntroPageDeleteMe() {
         <StartingExamples />
 
         <ServiceBindings />
-        
+
         <IntroFeatures />
 
         <IntroFooter />

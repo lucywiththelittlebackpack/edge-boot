@@ -16,7 +16,11 @@ export function IntroHeader() {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <a href="https://github.com/lucywiththelittlebackpack/cf-boot" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/lucywiththelittlebackpack/cf-boot"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button variant="outline" size="icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,12 +45,13 @@ export function IntroHeader() {
       </div>
 
       <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-        The <span className="text-[#F38020]">ultimate</span> starter template
-        for Cloudflare Workers.
+        The <span className="text-[#F38020]">ultimate</span> starter template for Cloudflare
+        Workers.
       </h1>
 
       <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-        A fully-featured, opinionated foundation for building globally distributed full-stack applications on the Cloudflare developer platform.
+        A fully-featured, opinionated foundation for building globally distributed full-stack
+        applications on the Cloudflare developer platform.
       </p>
     </header>
   );

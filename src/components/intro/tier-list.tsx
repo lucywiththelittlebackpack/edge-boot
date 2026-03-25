@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { BoxIcon, LockIcon, TerminalIcon } from "lucide-react";
+import React, { useState } from "react";
 
 const LAYERS = [
   { id: "Build", label: "Build", color: "#c55575" },
@@ -30,54 +30,197 @@ interface Library {
 
 const LIBRARIES: Library[] = [
   // Build
-  { id: "compiler", name: "Compiler", layerId: "Build", activeIn: ["react", "monorepo", "start"], githubRepo: "facebook/react", iconUrl: "https://cdn.simpleicons.org/react/61daf8", version: "v19.2.4" },
-  { id: "vite", name: "Vite", layerId: "Build", activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"], githubRepo: "vitejs/vite", iconUrl: "https://cdn.simpleicons.org/vite/646CFF", version: "v8.0.2" },
-  { id: "oxlint", name: "Oxlint", layerId: "Build", activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"], githubRepo: "oxc-project/oxc", FallbackIcon: BoxIcon, version: "v1.57.0" },
-  { id: "oxfmt", name: "Oxfmt", layerId: "Build", activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"], githubRepo: "oxc-project/oxc", FallbackIcon: TerminalIcon, version: "v1.57.0" },
-  { id: "pnpm", name: "pnpm", layerId: "Build", activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"], githubRepo: "pnpm/pnpm", iconUrl: "https://cdn.simpleicons.org/pnpm/F69220", version: "v10.33.0" },
+  {
+    id: "compiler",
+    name: "Compiler",
+    layerId: "Build",
+    activeIn: ["react", "monorepo", "start"],
+    githubRepo: "facebook/react",
+    iconUrl: "https://cdn.simpleicons.org/react/61daf8",
+    version: "v19.2.4",
+  },
+  {
+    id: "vite",
+    name: "Vite",
+    layerId: "Build",
+    activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"],
+    githubRepo: "vitejs/vite",
+    iconUrl: "https://cdn.simpleicons.org/vite/646CFF",
+    version: "v8.0.2",
+  },
+  {
+    id: "oxlint",
+    name: "Oxlint",
+    layerId: "Build",
+    activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"],
+    githubRepo: "oxc-project/oxc",
+    FallbackIcon: BoxIcon,
+    version: "v1.57.0",
+  },
+  {
+    id: "oxfmt",
+    name: "Oxfmt",
+    layerId: "Build",
+    activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"],
+    githubRepo: "oxc-project/oxc",
+    FallbackIcon: TerminalIcon,
+    version: "v1.57.0",
+  },
+  {
+    id: "pnpm",
+    name: "pnpm",
+    layerId: "Build",
+    activeIn: ["react", "astro", "monorepo", "hono", "start", "mui"],
+    githubRepo: "pnpm/pnpm",
+    iconUrl: "https://cdn.simpleicons.org/pnpm/F69220",
+    version: "v10.33.0",
+  },
 
   // Framework
-  { id: "react", name: "React", layerId: "Framework", activeIn: ["react", "monorepo", "start", "mui"], githubRepo: "facebook/react", iconUrl: "https://cdn.simpleicons.org/react/61daf8", version: "v19.2.4" },
-  { id: "start", name: "TanStack Start", layerId: "Framework", activeIn: ["monorepo", "start"], githubRepo: "TanStack/router", iconUrl: "https://cdn.simpleicons.org/tanstack/ffca28", version: "release-2026-03-24-2312" },
-  { id: "router", name: "React Router", layerId: "Framework", activeIn: ["react", "mui"], githubRepo: "remix-run/react-router", iconUrl: "https://cdn.simpleicons.org/reactrouter/CA4245", version: "v7.13.2" },
-  { id: "astro", name: "Astro", layerId: "Framework", activeIn: ["astro", "monorepo"], githubRepo: "withastro/astro", iconUrl: "https://cdn.simpleicons.org/astro/FF5D01", version: "@astrojs/cloudflare@13.1.3" },
-  { id: "hono", name: "Hono", layerId: "Framework", activeIn: ["react", "hono", "monorepo"], githubRepo: "honojs/hono", iconUrl: "https://cdn.simpleicons.org/hono/E36002", version: "v4.12.9" },
+  {
+    id: "react",
+    name: "React",
+    layerId: "Framework",
+    activeIn: ["react", "monorepo", "start", "mui"],
+    githubRepo: "facebook/react",
+    iconUrl: "https://cdn.simpleicons.org/react/61daf8",
+    version: "v19.2.4",
+  },
+  {
+    id: "start",
+    name: "TanStack Start",
+    layerId: "Framework",
+    activeIn: ["monorepo", "start"],
+    githubRepo: "TanStack/router",
+    iconUrl: "https://cdn.simpleicons.org/tanstack/ffca28",
+    version: "release-2026-03-24-2312",
+  },
+  {
+    id: "router",
+    name: "React Router",
+    layerId: "Framework",
+    activeIn: ["react", "mui"],
+    githubRepo: "remix-run/react-router",
+    iconUrl: "https://cdn.simpleicons.org/reactrouter/CA4245",
+    version: "v7.13.2",
+  },
+  {
+    id: "astro",
+    name: "Astro",
+    layerId: "Framework",
+    activeIn: ["astro", "monorepo"],
+    githubRepo: "withastro/astro",
+    iconUrl: "https://cdn.simpleicons.org/astro/FF5D01",
+    version: "@astrojs/cloudflare@13.1.3",
+  },
+  {
+    id: "hono",
+    name: "Hono",
+    layerId: "Framework",
+    activeIn: ["react", "hono", "monorepo"],
+    githubRepo: "honojs/hono",
+    iconUrl: "https://cdn.simpleicons.org/hono/E36002",
+    version: "v4.12.9",
+  },
 
   // Run
-  { id: "query", name: "React Query", layerId: "Run", activeIn: ["react", "monorepo", "start", "mui"], githubRepo: "TanStack/query", iconUrl: "https://cdn.simpleicons.org/reactquery/FF4154", version: "release-2026-03-23-1536" },
-  { id: "drizzle", name: "Drizzle ORM", layerId: "Run", activeIn: ["monorepo", "hono", "start"], githubRepo: "drizzle-team/drizzle-orm", iconUrl: "https://cdn.simpleicons.org/drizzle/C5F74F", version: "drizzle-kit@0.31.10" },
-  { id: "betterauth", name: "Better Auth", layerId: "Run", activeIn: ["monorepo", "start"], githubRepo: "better-auth/better-auth", FallbackIcon: LockIcon, version: "v1.5.6" },
-  { id: "zod", name: "Zod", layerId: "Run", activeIn: ["react", "monorepo", "hono", "start"], githubRepo: "colinhacks/zod", iconUrl: "https://cdn.simpleicons.org/zod/3E67B1", version: "v4.3.6" },
+  {
+    id: "query",
+    name: "React Query",
+    layerId: "Run",
+    activeIn: ["react", "monorepo", "start", "mui"],
+    githubRepo: "TanStack/query",
+    iconUrl: "https://cdn.simpleicons.org/reactquery/FF4154",
+    version: "release-2026-03-23-1536",
+  },
+  {
+    id: "drizzle",
+    name: "Drizzle ORM",
+    layerId: "Run",
+    activeIn: ["monorepo", "hono", "start"],
+    githubRepo: "drizzle-team/drizzle-orm",
+    iconUrl: "https://cdn.simpleicons.org/drizzle/C5F74F",
+    version: "drizzle-kit@0.31.10",
+  },
+  {
+    id: "betterauth",
+    name: "Better Auth",
+    layerId: "Run",
+    activeIn: ["monorepo", "start"],
+    githubRepo: "better-auth/better-auth",
+    FallbackIcon: LockIcon,
+    version: "v1.5.6",
+  },
+  {
+    id: "zod",
+    name: "Zod",
+    layerId: "Run",
+    activeIn: ["react", "monorepo", "hono", "start"],
+    githubRepo: "colinhacks/zod",
+    iconUrl: "https://cdn.simpleicons.org/zod/3E67B1",
+    version: "v4.3.6",
+  },
 
   // Styling
-  { id: "tailwind", name: "Tailwind CSS", layerId: "Styling", activeIn: ["react", "astro", "monorepo", "start"], githubRepo: "tailwindlabs/tailwindcss", iconUrl: "https://cdn.simpleicons.org/tailwindcss/06b6d4", version: "v4.2.2" },
-  { id: "shadcn", name: "shadcn/ui", layerId: "Styling", activeIn: ["react", "monorepo", "start"], githubRepo: "shadcn-ui/ui", iconUrl: "https://cdn.simpleicons.org/shadcnui/000000", version: "shadcn@4.1.0" },
-  { id: "baseui", name: "Base UI", layerId: "Styling", activeIn: ["react", "monorepo", "start"], githubRepo: "mui/base-ui", iconUrl: "https://cdn.simpleicons.org/mui/007FFF", version: "v1.3.0" },
-  { id: "mui", name: "Material UI", layerId: "Styling", activeIn: ["mui"], githubRepo: "mui/material-ui", iconUrl: "https://cdn.simpleicons.org/mui/007FFF", version: "v7.3.9" },
+  {
+    id: "tailwind",
+    name: "Tailwind CSS",
+    layerId: "Styling",
+    activeIn: ["react", "astro", "monorepo", "start"],
+    githubRepo: "tailwindlabs/tailwindcss",
+    iconUrl: "https://cdn.simpleicons.org/tailwindcss/06b6d4",
+    version: "v4.2.2",
+  },
+  {
+    id: "shadcn",
+    name: "shadcn/ui",
+    layerId: "Styling",
+    activeIn: ["react", "monorepo", "start"],
+    githubRepo: "shadcn-ui/ui",
+    iconUrl: "https://cdn.simpleicons.org/shadcnui/000000",
+    version: "shadcn@4.1.0",
+  },
+  {
+    id: "baseui",
+    name: "Base UI",
+    layerId: "Styling",
+    activeIn: ["react", "monorepo", "start"],
+    githubRepo: "mui/base-ui",
+    iconUrl: "https://cdn.simpleicons.org/mui/007FFF",
+    version: "v1.3.0",
+  },
+  {
+    id: "mui",
+    name: "Material UI",
+    layerId: "Styling",
+    activeIn: ["mui"],
+    githubRepo: "mui/material-ui",
+    iconUrl: "https://cdn.simpleicons.org/mui/007FFF",
+    version: "v7.3.9",
+  },
 ];
 
-function LibraryCard({ 
-  lib, 
-  isOpacedOut, 
+function LibraryCard({
+  lib,
+  isOpacedOut,
   layerColor,
   onMouseEnter,
-  onMouseLeave
-}: { 
-  lib: Library; 
-  isOpacedOut: boolean; 
+  onMouseLeave,
+}: {
+  lib: Library;
+  isOpacedOut: boolean;
   layerColor: string;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
   const IconComponent = lib.FallbackIcon;
-  
 
   return (
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={`group relative flex h-[85px] w-[70px] select-none flex-col transition-all duration-300 sm:h-[100px] sm:w-[85px] ${
-        isOpacedOut ? "scale-95 saturate-0 opacity-30" : "opacity-100 hover:z-50 hover:scale-[1.03]"
+      className={`group relative flex h-[85px] w-[70px] flex-col transition-all duration-300 select-none sm:h-[100px] sm:w-[85px] ${
+        isOpacedOut ? "scale-95 opacity-30 saturate-0" : "opacity-100 hover:z-50 hover:scale-[1.03]"
       }`}
       style={{
         borderWidth: "3px",
@@ -86,7 +229,7 @@ function LibraryCard({
         backgroundColor: "#ffffff",
       }}
     >
-      <div className="pointer-events-none absolute -top-12 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center whitespace-nowrap rounded-md bg-neutral-900 px-3 py-1.5 text-xs text-white opacity-0 shadow-xl transition-opacity group-hover:opacity-100">
+      <div className="pointer-events-none absolute -top-12 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-neutral-900 px-3 py-1.5 text-xs whitespace-nowrap text-white opacity-0 shadow-xl transition-opacity group-hover:opacity-100">
         <span className="font-bold">{lib.name}</span>
         <span className="font-mono text-[10px] text-neutral-400">{lib.version}</span>
         <div className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 bg-neutral-900"></div>
@@ -109,7 +252,7 @@ function LibraryCard({
       </div>
 
       <div
-        className="flex h- w-full items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap px-1 text-[9px] font-bold leading-none text-white sm:h-6 sm:text-[11px]"
+        className="h- flex w-full items-center justify-center overflow-hidden px-1 text-[9px] leading-none font-bold text-ellipsis whitespace-nowrap text-white sm:h-6 sm:text-[11px]"
         style={{ backgroundColor: isOpacedOut ? "#4a4a55" : layerColor }}
       >
         {lib.name}
@@ -135,15 +278,15 @@ export function TierList({
   const getLayerLibraries = (layerId: string) => LIBRARIES.filter((l) => l.layerId === layerId);
 
   const effectiveType = hoveredTypeId || selectedType;
-  const hoveredLibrary = hoveredLibraryId ? LIBRARIES.find(l => l.id === hoveredLibraryId) : null;
+  const hoveredLibrary = hoveredLibraryId ? LIBRARIES.find((l) => l.id === hoveredLibraryId) : null;
 
   return (
     <div className="mx-auto w-full max-w-6xl rounded-xl bg-[#2a2a2f] p-4 font-sans text-white shadow-2xl sm:p-6">
-      <div className="mb-6 flex flex-wrap gap-2 rounded-md bg-[#222226] p-2 text-xs font-mono text-neutral-400 sm:text-sm lg:gap-4 lg:p-3">
+      <div className="mb-6 flex flex-wrap gap-2 rounded-md bg-[#222226] p-2 font-mono text-xs text-neutral-400 sm:text-sm lg:gap-4 lg:p-3">
         {TOGGLES.map((type) => {
           const isSelected = selectedType === type.id;
           const isHovered = hoveredTypeId === type.id;
-          
+
           let isHoverSelected = false;
           let isHoverDimmed = false;
 
@@ -163,9 +306,9 @@ export function TierList({
               onMouseLeave={() => setHoveredTypeId(null)}
               className={`flex items-center gap-2 rounded px-3 py-1.5 transition-all ${
                 isSelected || isHovered || isHoverSelected
-                  ? "bg-[#3a3a46] font-medium text-white shadow-sm" 
+                  ? "bg-[#3a3a46] font-medium text-white shadow-sm"
                   : "hover:bg-[#2d2d34]"
-              } ${isHoverDimmed ? "scale-95 saturate-0 opacity-30" : "opacity-100"}`}
+              } ${isHoverDimmed ? "scale-95 opacity-30 saturate-0" : "opacity-100"}`}
             >
               <span className={`size-3 shrink-0 rounded-[2px] ${type.bgClass}`} />
               <span className="tracking-tight">{type.label}</span>
@@ -182,7 +325,7 @@ export function TierList({
             style={{ borderBottomColor: index === array.length - 1 ? "transparent" : "#1e1e24" }}
           >
             <div
-              className="flex w-12 shrink-0 items-center justify-center border-r-2 border-[#1E1E24] text-xs font-bold text-white sm:w-26 sm:text-md"
+              className="sm:text-md flex w-12 shrink-0 items-center justify-center border-r-2 border-[#1E1E24] text-xs font-bold text-white sm:w-26"
               style={{ backgroundColor: layerData.color }}
             >
               <span className="-rotate-90 tracking-widest uppercase sm:rotate-0 sm:tracking-normal sm:capitalize">
@@ -195,11 +338,11 @@ export function TierList({
                 const isOpacedOut = effectiveType !== null && !lib.activeIn.includes(effectiveType);
 
                 return (
-                  <LibraryCard 
-                    key={lib.id} 
-                    lib={lib} 
-                    isOpacedOut={isOpacedOut} 
-                    layerColor={layerData.color} 
+                  <LibraryCard
+                    key={lib.id}
+                    lib={lib}
+                    isOpacedOut={isOpacedOut}
+                    layerColor={layerData.color}
                     onMouseEnter={() => setHoveredLibraryId(lib.id)}
                     onMouseLeave={() => setHoveredLibraryId(null)}
                   />
